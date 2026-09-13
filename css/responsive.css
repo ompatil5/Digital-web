@@ -1,0 +1,235 @@
+/* ==========================================================================
+   DIGITAL RENUKA - LUXURY EDITORIAL RESPONSIVE SYSTEM
+   ========================================================================== */
+
+@media (min-width: 1200px) {
+  .container-editorial {
+    max-width: 1380px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .hero-title {
+    max-width: 1180px;
+  }
+}
+
+@media (min-width: 992px) {
+  .hero-grid-split {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: var(--grid-gap);
+    align-items: stretch;
+  }
+  
+  .border-lg-left {
+    border-left: var(--border-thin) !important;
+  }
+
+  .border-lg-right {
+    border-right: var(--border-thin) !important;
+  }
+
+  .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+  }
+}
+
+@media (max-width: 991.98px) {
+  :root {
+    --header-height: 94px;
+  }
+
+  .brand-logo-img {
+    height: 66px;
+  }
+
+  .section-padding {
+    padding-top: clamp(4rem, 8vw, 6rem);
+    padding-bottom: clamp(4rem, 8vw, 6rem);
+  }
+
+  /* Mobile Navbar Menu Drawer */
+  .navbar-custom .navbar-collapse {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: var(--border-thin);
+    padding: 2rem 1.8rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    transition: transform var(--transition-normal), opacity var(--transition-normal);
+    z-index: 1050;
+    max-height: calc(100vh - var(--header-height));
+    overflow-y: auto;
+  }
+
+  .navbar-custom .navbar-nav {
+    gap: 0.8rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .navbar-custom .nav-link {
+    font-size: 1.1rem;
+    padding: 0.7rem 0 !important;
+    border-bottom: 1px dashed var(--color-border);
+  }
+
+  .navbar-custom .nav-link::after {
+    display: none;
+  }
+
+  .hero-title {
+    margin-bottom: 1.8rem;
+    word-break: break-word;
+  }
+
+  .editorial-card {
+    padding: 2rem;
+  }
+
+  .service-row-title {
+    font-size: 1.6rem;
+  }
+
+  /* Founder Photo Card Mobile Sizing */
+  .founder-photo-img,
+  .bw-to-color-img {
+    max-height: 420px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  /* Prevent iOS input auto-zoom on focus */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  .founder-photo-caption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  :root {
+    --header-height: 84px;
+  }
+
+  .brand-logo-img {
+    height: 58px;
+  }
+
+  .footer-logo-img {
+    height: 52px;
+  }
+
+  .section-padding {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero-editorial {
+    padding-top: 2.2rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero-title {
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-tag-group {
+    gap: 0.45rem;
+  }
+
+  .hero-tag {
+    font-size: 0.72rem;
+    padding: 0.4rem 0.75rem;
+  }
+
+  .btn-editorial {
+    width: 100%;
+    padding: 1.1rem 1.6rem;
+    font-size: 0.88rem;
+  }
+
+  .btn-group-mobile-stack {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.85rem;
+  }
+
+  .editorial-card {
+    padding: 1.6rem;
+  }
+
+  .service-row-item {
+    padding-top: 1.6rem;
+    padding-bottom: 1.6rem;
+  }
+
+  .founder-photo-img,
+  .bw-to-color-img {
+    max-height: 360px;
+  }
+
+  .footer-social-links {
+    gap: 0.45rem;
+  }
+
+  .social-icon-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-icon-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .footer-editorial {
+    padding-top: 3.5rem;
+    padding-bottom: 2.8rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+}
+
+/* Ultra-Small Mobile Viewports (320px - 380px) */
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: clamp(2rem, 9.5vw, 2.8rem);
+  }
+
+  .btn-editorial {
+    padding: 0.95rem 1.3rem;
+    font-size: 0.82rem;
+  }
+
+  .social-icon-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .social-icon-btn svg {
+    width: 17px;
+    height: 17px;
+  }
+}

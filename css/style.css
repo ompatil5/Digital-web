@@ -1,0 +1,1231 @@
+/* ==========================================================================
+   DIGITAL RENUKA - FINAL LUXURY ART-DIRECTION & DESIGN SYSTEM
+   Direction: High-End Luxury Creative Studio / Editorial Architecture
+   Palette: White (#FFFFFF), Off-White (#F6F6F3), Deep Black (#111111), Coral Accent (#FF5A36)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. DESIGN TOKENS & TYPOGRAPHY SCALE
+   -------------------------------------------------------------------------- */
+:root {
+  /* Color Palette */
+  --color-black: #111111;
+  --color-white: #FFFFFF;
+  --color-off-white: #F6F6F3;
+  --color-accent: #FF5A36;
+  --color-border: #E2E2DF;
+  --color-border-dark: #2A2A2A;
+  --color-muted: #555555;
+  --color-dark-bg: #0C0C0C;
+  
+  /* Luxury Editorial Typography System */
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* Fluid Architectural Typography Scale (Reduced by 5%) */
+  --font-hero: clamp(3.04rem, 7.6vw, 7.79rem);
+  --font-h1: clamp(2.38rem, 5.22vw, 4.94rem);
+  --font-h2: clamp(1.85rem, 3.61vw, 3.61rem);
+  --font-h3: clamp(1.38rem, 2.28vw, 2.28rem);
+  --font-body-lg: clamp(1.06rem, 1.38vw, 1.25rem);
+  --font-body-base: 1rem;
+  --font-small: 0.89rem;
+  --font-micro: 0.74rem;
+
+  /* Architectural Spacing Scale (Generous Rhythm) */
+  --section-padding-y: clamp(5.5rem, 11vw, 10rem);
+  --grid-gap: clamp(1.8rem, 3.5vw, 4rem);
+  
+  /* Layout & Utility Variables */
+  --header-height: 104px;
+  --transition-fast: 0.25s cubic-bezier(0.2, 1, 0.4, 1);
+  --transition-normal: 0.38s cubic-bezier(0.2, 1, 0.4, 1);
+  --transition-smooth: 0.55s cubic-bezier(0.2, 1, 0.4, 1);
+  --border-thin: 1px solid var(--color-border);
+  --border-dark-thin: 1px solid var(--color-border-dark);
+}
+
+.brand-logo-img {
+  height: 72px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* --------------------------------------------------------------------------
+   2. BASE & RESET STYLES
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-body);
+  font-size: 95%; /* 5% reduction from 100% / 16px */
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.68;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+::-moz-selection {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+/* Luxury Display Typography */
+h1, h2, h3, h4, h5, h6, .display-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.03;
+  letter-spacing: -0.035em;
+  color: var(--color-black);
+  margin-top: 0;
+}
+
+.text-uppercase-display {
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.font-editorial {
+  font-family: var(--font-display);
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1.35rem;
+  color: var(--color-muted);
+  font-size: var(--font-body-base);
+}
+
+p.lead-text {
+  font-size: var(--font-body-lg);
+  line-height: 1.58;
+  color: var(--color-black);
+  font-weight: 400;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+/* Distinctive Editorial Section Label System */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-display);
+  font-size: var(--font-micro);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-black);
+  margin-bottom: 1.6rem;
+}
+
+.section-label::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+}
+
+.section-label.light {
+  color: var(--color-white);
+}
+
+.section-label.light::before {
+  background-color: var(--color-accent);
+}
+
+/* Section Padding Utility */
+.section-padding {
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+}
+
+.bg-off-white {
+  background-color: var(--color-off-white) !important;
+}
+
+.bg-dark-editorial {
+  background-color: var(--color-dark-bg) !important;
+  color: var(--color-white) !important;
+}
+
+.bg-dark-editorial h1,
+.bg-dark-editorial h2,
+.bg-dark-editorial h3,
+.bg-dark-editorial h4,
+.bg-dark-editorial .display-heading {
+  color: var(--color-white) !important;
+}
+
+.bg-dark-editorial p {
+  color: #B5B5B5;
+}
+
+/* Structural Thin Borders */
+.border-top-thin {
+  border-top: var(--border-thin) !important;
+}
+
+.border-bottom-thin {
+  border-bottom: var(--border-thin) !important;
+}
+
+.border-left-thin {
+  border-left: var(--border-thin) !important;
+}
+
+.border-right-thin {
+  border-right: var(--border-thin) !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. NAVIGATION BAR (LUXURY EDITORIAL HEADER)
+   -------------------------------------------------------------------------- */
+.navbar-custom {
+  height: var(--header-height);
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: var(--border-thin);
+  position: sticky;
+  top: 0;
+  z-index: 1050;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.navbar-custom .navbar-brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.18rem;
+  letter-spacing: -0.03em;
+  color: var(--color-black);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.brand-logo-img {
+  height: 72px;
+  width: auto;
+  object-fit: contain;
+}
+
+.footer-logo-img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  background-color: #FFFFFF;
+  padding: 8px;
+  border-radius: 0;
+  margin-bottom: 1.25rem;
+}
+
+.navbar-brand-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.22rem 0.55rem;
+  background-color: var(--color-off-white);
+  border: var(--border-thin);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-black);
+  border-radius: 0;
+}
+
+.navbar-custom .nav-link {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-black);
+  padding: 0.5rem 1.3rem !important;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.navbar-custom .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 1.3rem;
+  right: 1.3rem;
+  height: 2px;
+  background-color: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--transition-normal);
+}
+
+.navbar-custom .nav-link:hover::after,
+.navbar-custom .nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.navbar-custom .nav-link.active {
+  color: var(--color-black) !important;
+  font-weight: 700;
+}
+
+/* Custom Hamburger Toggle Button */
+.navbar-toggler-custom {
+  border: var(--border-thin);
+  background: transparent;
+  padding: 0.55rem 0.8rem;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.navbar-toggler-custom:focus {
+  outline: 2px solid var(--color-black);
+  box-shadow: none;
+}
+
+.toggler-icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--color-black);
+  margin: 4px 0;
+  transition: transform var(--transition-fast);
+}
+
+/* --------------------------------------------------------------------------
+   4. BUTTON COMPONENTS (MINIMAL LUXURY SYSTEM)
+   -------------------------------------------------------------------------- */
+.btn-editorial {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 1.2rem 2.6rem;
+  border-radius: 0;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn-editorial:focus-visible {
+  outline: 2px solid var(--color-black);
+  outline-offset: 3px;
+}
+
+/* Primary Black Button */
+.btn-editorial-black {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-black);
+}
+
+.btn-editorial-black:hover {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border-color: var(--color-accent);
+}
+
+/* Accent Orange Button */
+.btn-editorial-accent {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border-color: var(--color-accent);
+}
+
+.btn-editorial-accent:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-black);
+}
+
+/* Outline Button */
+.btn-editorial-outline {
+  background-color: transparent;
+  color: var(--color-black);
+  border-color: var(--color-black);
+}
+
+.btn-editorial-outline:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.btn-editorial-outline-light {
+  background-color: transparent;
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
+
+.btn-editorial-outline-light:hover {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.btn-editorial .btn-arrow {
+  display: inline-block;
+  transition: transform var(--transition-fast);
+}
+
+.btn-editorial:hover .btn-arrow {
+  transform: translateX(5px);
+}
+
+/* --------------------------------------------------------------------------
+   5. HERO SECTION (SIGNATURE EDITORIAL MOMENT)
+   -------------------------------------------------------------------------- */
+.hero-editorial {
+  position: relative;
+  padding-top: clamp(3.8rem, 8.5vw, 7rem);
+  padding-bottom: clamp(5rem, 9.5vw, 8.5rem);
+  border-bottom: var(--border-thin);
+  background-color: var(--color-white);
+}
+
+.hero-title {
+  font-size: var(--font-hero);
+  font-weight: 800;
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--color-black);
+  margin-bottom: 2.2rem;
+}
+
+.hero-accent-text {
+  color: var(--color-accent);
+  display: inline-block;
+}
+
+.hero-subtitle {
+  font-size: var(--font-body-lg);
+  line-height: 1.62;
+  color: var(--color-muted);
+  max-width: 680px;
+  margin-bottom: 2.5rem;
+}
+
+.hero-tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-tag {
+  font-size: var(--font-micro);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.45rem 0.95rem;
+  background-color: var(--color-off-white);
+  border: var(--border-thin);
+  color: var(--color-black);
+  border-radius: 0;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.hero-tag:hover {
+  border-color: var(--color-black);
+  background-color: var(--color-white);
+}
+
+/* Editorial Information Panel (Right Hero Column) */
+.hero-feature-box {
+  border: var(--border-thin);
+  padding: 2.2rem 2.2rem 1.8rem 2.2rem;
+  background-color: var(--color-off-white);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.hero-feature-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background-color: var(--color-accent);
+}
+
+.hero-feature-number {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  margin-bottom: 1.4rem;
+  display: block;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   6. EDITORIAL SERVICE SYSTEM (HERO OF THE WEBSITE)
+   -------------------------------------------------------------------------- */
+.service-editorial-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-row-item {
+  border-bottom: var(--border-thin);
+  padding: 2.8rem 1.2rem;
+  transition: background-color var(--transition-normal), border-color var(--transition-fast);
+  position: relative;
+}
+
+.service-row-item:first-child {
+  border-top: var(--border-thin);
+}
+
+.service-row-item:hover {
+  background-color: var(--color-off-white);
+  border-bottom-color: var(--color-black);
+}
+
+.service-row-number {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-black);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.service-row-item:hover .service-row-number {
+  color: var(--color-accent);
+  transform: translateX(4px);
+}
+
+.service-row-title {
+  font-size: clamp(1.5rem, 2.6vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  margin-bottom: 0.5rem;
+  transition: transform var(--transition-fast);
+}
+
+.service-row-item:hover .service-row-title {
+  transform: translateX(6px);
+}
+
+.editorial-card {
+  border: var(--border-thin);
+  background-color: var(--color-white);
+  padding: clamp(2.2rem, 3.5vw, 3.2rem);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+  border-radius: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.editorial-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 90, 54, 0.14) 1px, transparent 0);
+  background-size: 24px 24px;
+  opacity: 0.35;
+  pointer-events: none;
+  transition: opacity var(--transition-fast);
+}
+
+.editorial-card:hover {
+  border-color: var(--color-black);
+  background-color: var(--color-off-white);
+}
+
+.editorial-card:hover::after {
+  opacity: 0.85;
+  animation: cardPatternPulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes cardPatternPulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(1.025); opacity: 0.95; }
+}
+
+.editorial-card-number {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--color-muted);
+  margin-bottom: 1.6rem;
+  position: relative;
+  z-index: 1;
+}
+
+.editorial-card-title {
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.editorial-card-desc {
+  font-size: var(--font-body-base);
+  color: var(--color-muted);
+  margin-bottom: 1.6rem;
+  flex-grow: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   7. TYPOGRAPHIC CAPABILITY MATRIX (REFINED ARCHITECTURAL INDEX)
+   -------------------------------------------------------------------------- */
+.matrix-group-card {
+  border: var(--border-thin);
+  background-color: var(--color-white);
+  padding: 2.4rem 2rem;
+  height: 100%;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.matrix-group-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to right, rgba(17, 17, 17, 0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.4;
+  pointer-events: none;
+  transition: opacity var(--transition-fast);
+}
+
+.matrix-group-card:hover {
+  border-color: var(--color-black);
+  background-color: var(--color-off-white);
+}
+
+.matrix-group-card:hover::after {
+  opacity: 0.9;
+}
+
+.matrix-group-title {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-accent);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.matrix-group-title::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+}
+
+.matrix-item-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.matrix-item-list li {
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--color-black);
+  padding: 0.75rem 0;
+  border-bottom: 1px dashed var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.matrix-item-list li:last-child {
+  border-bottom: none;
+}
+
+/* --------------------------------------------------------------------------
+   8. METHODOLOGY CONNECTING LINE (DESKTOP)
+   -------------------------------------------------------------------------- */
+.methodology-row {
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .methodology-row::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background-color: var(--color-border);
+    z-index: 0;
+  }
+}
+
+.editorial-card-methodology {
+  position: relative;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   9. FORM STYLING (LUXURY CONSULTATION EXPERIENCE)
+   -------------------------------------------------------------------------- */
+.form-group-editorial {
+  margin-bottom: 1.8rem;
+}
+
+.form-label-editorial {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--font-micro);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-black);
+  margin-bottom: 0.65rem;
+}
+
+.form-control-editorial {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  border: var(--border-thin);
+  padding: 1.25rem 1.4rem;
+  border-radius: 0;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-control-editorial:focus {
+  outline: none;
+  border-color: var(--color-black);
+  box-shadow: 0 0 0 2px rgba(17, 17, 17, 0.14);
+}
+
+.form-control-editorial::placeholder {
+  color: #B5B5B5;
+  font-size: 0.98rem;
+}
+
+select.form-control-editorial {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23111111' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.35rem center;
+  background-size: 16px;
+  padding-right: 2.8rem;
+}
+
+.form-feedback-error {
+  font-size: 0.85rem;
+  color: #D32F2F;
+  margin-top: 0.45rem;
+  display: none;
+}
+
+.form-control-editorial.is-invalid {
+  border-color: #D32F2F !important;
+}
+
+.form-control-editorial.is-invalid + .form-feedback-error {
+  display: block;
+}
+
+/* Success Banner State */
+.form-success-banner {
+  display: none;
+  border: 1px solid var(--color-black);
+  background-color: var(--color-off-white);
+  padding: 2.8rem;
+  margin-top: 1.5rem;
+}
+
+.form-success-banner.active {
+  display: block;
+  animation: fadeIn var(--transition-normal);
+}
+
+/* --------------------------------------------------------------------------
+   10. ASSET PLACEHOLDER FRAMES
+   -------------------------------------------------------------------------- */
+.asset-placeholder-frame {
+  border: 1px dashed var(--color-border-dark);
+  background-color: var(--color-off-white);
+  padding: 3rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  min-height: 280px;
+}
+
+.asset-placeholder-tag {
+  font-size: var(--font-micro);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 0.38rem 0.85rem;
+}
+
+.asset-placeholder-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-black);
+  margin: 0;
+}
+
+.asset-placeholder-desc {
+  font-size: var(--font-small);
+  color: var(--color-muted);
+  max-width: 340px;
+  margin: 0;
+}/* --------------------------------------------------------------------------
+   10.1 FOUNDER PHOTOGRAPH CARD
+   -------------------------------------------------------------------------- */
+.founder-photo-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.founder-photo-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  flex-grow: 1;
+}
+
+.founder-photo-img,
+.bw-to-color-img {
+  width: 100%;
+  height: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  filter: grayscale(100%) contrast(1.08) brightness(0.96);
+  transition: filter 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.founder-photo-card:hover .founder-photo-img,
+.founder-photo-img:hover,
+.bw-to-color-img:hover {
+  filter: grayscale(0%) contrast(1) brightness(1);
+  transform: scale(1.025);
+}
+
+.founder-photo-caption {
+  margin-top: 0.85rem;
+  padding-top: 0.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--color-border);
+}
+
+.founder-photo-caption .caption-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--color-black);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.founder-photo-caption .caption-role {
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* --------------------------------------------------------------------------
+   11. LUXURY ARCHITECTURAL FOOTER
+   -------------------------------------------------------------------------- */
+.footer-editorial {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding-top: var(--section-padding-y);
+  padding-bottom: 3.8rem;
+  border-top: var(--border-thin);
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+}
+
+.footer-desc {
+  color: #B5B5B5;
+  font-size: 0.98rem;
+  max-width: 360px;
+  margin-bottom: 1.4rem;
+}
+
+/* Social Media Icons in Footer (Glassmorphic Rounded Square Icon Buttons) */
+.footer-social-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.4rem;
+}
+
+.social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #ffffff;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), 0 4px 14px rgba(0, 0, 0, 0.2);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.social-icon-btn:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(255, 90, 54, 0.4);
+}
+
+.social-icon-btn svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.footer-title {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-white);
+  margin-bottom: 1.6rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.85rem;
+}
+
+.footer-links a {
+  color: #B5B5B5;
+  font-size: 0.98rem;
+  transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--color-white);
+}
+
+.footer-bottom {
+  border-top: 1px solid #222222;
+  margin-top: 4.8rem;
+  padding-top: 2.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.88rem;
+  color: #777777;
+}
+
+/* --------------------------------------------------------------------------
+   12. LOOPING BACKGROUND PATTERNS & HUMAN ART DIRECTION
+   -------------------------------------------------------------------------- */
+.hero-editorial {
+  position: relative;
+  padding-top: clamp(3.8rem, 8.5vw, 7rem);
+  padding-bottom: clamp(5rem, 9.5vw, 8.5rem);
+  border-bottom: var(--border-thin);
+  background-color: var(--color-white);
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   12. LUXURY LOOPING BACKGROUND ANIMATIONS (DISTINCT & VISIBLE PATTERNS)
+   -------------------------------------------------------------------------- */
+
+/* Section 1: Hero Architectural Grid Mesh & Pulsing Coral Nodes */
+.hero-bg-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(255, 90, 54, 0.18) 1.5px, transparent 0),
+    linear-gradient(to right, rgba(17, 17, 17, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(17, 17, 17, 0.05) 1px, transparent 1px);
+  background-size: 36px 36px, 36px 36px, 36px 36px;
+  pointer-events: none;
+  z-index: 0;
+  animation: heroPatternPulse 12s ease-in-out infinite alternate;
+}
+
+@keyframes heroPatternPulse {
+  0% { opacity: 0.55; transform: translateY(0) scale(1); }
+  50% { opacity: 0.95; transform: translateY(-8px) scale(1.015); }
+  100% { opacity: 0.55; transform: translateY(0) scale(1); }
+}
+
+/* Section 2: Moving Architectural Stripes (About / Founder Section) */
+.bg-pattern-diagonal {
+  position: absolute;
+  inset: -120px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(17, 17, 17, 0.04) 0px,
+    rgba(17, 17, 17, 0.04) 1.5px,
+    transparent 1.5px,
+    transparent 36px
+  );
+  pointer-events: none;
+  z-index: 0;
+  animation: diagonalStripeMove 20s linear infinite;
+}
+
+@keyframes diagonalStripeMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(51px, 51px); }
+}
+
+/* Section 3: Active Dot Matrix Grid (Capabilities Matrix & Services Section) */
+.matrix-bg-pattern {
+  position: relative;
+  overflow: hidden;
+}
+
+.matrix-bg-pattern::before {
+  content: "";
+  position: absolute;
+  inset: -120px;
+  background-image: 
+    radial-gradient(rgba(255, 90, 54, 0.22) 2px, transparent 2px),
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px, 32px 32px, 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+  animation: gridShiftLoop 24s linear infinite;
+}
+
+@keyframes gridShiftLoop {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(32px, 32px); }
+}
+
+/* Section 4: Architectural Concentric Waves (Methodology & Process Section) */
+.bg-pattern-waves {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 85% 15%, rgba(255, 90, 54, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 15% 85%, rgba(17, 17, 17, 0.07) 0%, transparent 55%),
+    repeating-radial-gradient(circle at 50% 50%, rgba(17, 17, 17, 0.02) 0, rgba(17, 17, 17, 0.02) 1px, transparent 1px, transparent 30px);
+  pointer-events: none;
+  z-index: 0;
+  animation: wavePulseLoop 16s ease-in-out infinite alternate;
+}
+
+@keyframes wavePulseLoop {
+  0% { transform: scale(0.95) translate(0, 0); opacity: 0.5; }
+  50% { transform: scale(1.05) translate(12px, -12px); opacity: 0.95; }
+  100% { transform: scale(0.95) translate(0, 0); opacity: 0.5; }
+}
+
+/* Section 5: Studio Blueprint Crosshair Grid (Consultation & Contact Section) */
+.bg-pattern-crosshairs {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(17, 17, 17, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(17, 17, 17, 0.06) 1px, transparent 1px),
+    radial-gradient(circle at 24px 24px, rgba(255, 90, 54, 0.15) 2px, transparent 0);
+  background-size: 48px 48px, 48px 48px, 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+  animation: crosshairPulse 12s ease-in-out infinite alternate;
+}
+
+@keyframes crosshairPulse {
+  0% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.01); }
+  100% { opacity: 0.4; transform: scale(1); }
+}
+
+/* Section 6: Dark Editorial Ambient Aura (Closing Call To Action) */
+.bg-dark-editorial {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-ambient-glow {
+  position: absolute;
+  width: 720px;
+  height: 720px;
+  background: 
+    radial-gradient(circle, rgba(255, 90, 54, 0.24) 0%, rgba(255, 90, 54, 0.06) 50%, transparent 70%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 24px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+  animation: ambientGlowLoop 14s ease-in-out infinite alternate;
+}
+
+@keyframes ambientGlowLoop {
+  0% { transform: translate(-50%, -50%) scale(0.85); opacity: 0.4; }
+  50% { transform: translate(-46%, -54%) scale(1.15); opacity: 0.85; }
+  100% { transform: translate(-54%, -46%) scale(0.9); opacity: 0.5; }
+}
+
+/* Human Design Studio Signature Stamp */
+.human-signature-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-display);
+  font-size: var(--font-micro);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  padding: 0.45rem 0.95rem;
+  border: 1px dashed var(--color-black);
+  background-color: var(--color-white);
+  color: var(--color-black);
+  margin-bottom: 1.6rem;
+  position: relative;
+  z-index: 1;
+}
+
+.human-signature-stamp .stamp-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  animation: stampDotPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes stampDotPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.8); }
+}
+
+/* --------------------------------------------------------------------------
+   13. SCROLL REVEAL & ACCESSIBILITY
+   -------------------------------------------------------------------------- */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity var(--transition-smooth), transform var(--transition-smooth);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  .hero-bg-pattern,
+  .matrix-bg-pattern::before,
+  .cta-ambient-glow,
+  .human-signature-stamp .stamp-dot {
+    animation: none !important;
+  }
+}
